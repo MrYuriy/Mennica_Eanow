@@ -40,5 +40,5 @@ def gen_labels(sku, barcod, qty):
     label_code = ""
     row_qty = int(-1 * (qty/3) // 1 * -1)
     for _ in range(row_qty):
-        label_code += gen_one_row(sku=sku, barcod=barcod) + empty_label
-    return label_code
+        label_code += gen_one_row(sku=sku, barcod=barcod)
+    return label_code + empty_label
