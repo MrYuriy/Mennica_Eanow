@@ -1,4 +1,11 @@
-  
+
+empty_label = '''
+^XA
+^FO0,0^GB0,0,0^FS
+^FO30,30^A0N,0,0^FD^FS
+^XZ
+'''
+
 def get_one_label(sku, barcod, x_set, y_set) -> str:
     x_sku, x_barcod, x_ean = x_set
     y_sku, y_barcod, y_ean = y_set
@@ -33,5 +40,5 @@ def gen_labels(sku, barcod, qty):
     label_code = ""
     row_qty = int(-1 * (qty/3) // 1 * -1)
     for _ in range(row_qty):
-        label_code += gen_one_row(sku=sku, barcod=barcod)
+        label_code += gen_one_row(sku=sku, barcod=barcod) + empty_label
     return label_code
